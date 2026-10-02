@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elora Skin — Beautifully Cared For</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap');
+    :root {
+      --cream: #f8f4ee;
+      --ivory: #fffdf9;
+      --pink: #ead8d2;
+      --sage: #dce2d5;
+      --brown: #3f342f;
+      --muted: #756963;
+      --white: #ffffff;
+      --border: #e8e0d8;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: var(--ivory);
+      color: var(--brown);
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      font-family: "Playfair Display", serif;
+      font-weight: 500;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+    /* NAVBAR */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 253, 249, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav {
+      max-width: 1200px;
+      margin: auto;
+      height: 76px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-family: "Playfair Display", serif;
+      font-size: 28px;
+      letter-spacing: 1px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+      font-size: 14px;
+    }
+    .nav-links a:hover {
+      opacity: 0.55;
+    }
+    .cart {
+      border: 1px solid var(--brown);
+      padding: 9px 16px;
+      border-radius: 30px;
+      background: transparent;
+    }
+    .menu {
+      display: none;
+      border: none;
+      background: none;
+      font-size: 24px;
+    }
+    /* HERO */
+    .hero {
+      min-height: 680px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--cream);
+    }
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 70px;
+      max-width: 650px;
+      margin-left: auto;
+    }
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 12px;
+      margin-bottom: 18px;
+      color: var(--muted);
+    }
+    .hero h1 {
+      font-size: clamp(50px, 6vw, 82px);
+      line-height: 1.02;
+      margin-bottom: 24px;
+    }
+    .hero p {
+      max-width: 470px;
+      color: var(--muted);
+      font-size: 17px;
+      margin-bottom: 35px;
+    }
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 30px;
+      border: 1px solid var(--brown);
+      transition: 0.25s;
+    }
+    .btn-primary {
+      background: var(--brown);
+      color: white;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+    .btn-secondary:hover {
+      background: var(--brown);
+      color: white;
+    }
+    .hero-image {
+      min-height: 680px;
+      background:
+        linear-gradient(rgba(234,216,210,.15), rgba(234,216,210,.15)),
+        url("https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=1200&q=85")
+        center / cover;
+    }
+    /* TRUST */
+    .trust {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-bottom: 1px solid var(--border);
+      background: white;
+    }
+    .trust-item {
+      padding: 24px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+      font-size: 13px;
+    }
+    .trust-item:last-child {
+      border-right: none;
+    }
+    /* SECTIONS */
+    section {
+      padding: 100px 24px;
+    }
+    .section-inner {
+      max-width: 1150px;
+      margin: auto;
+    }
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      margin-bottom: 45px;
+    }
+    .section-heading h2 {
+      font-size: 48px;
+      line-height: 1.1;
+    }
+    .section-heading p {
+      max-width: 400px;
+      color: var(--muted);
+    }
+    /* PRODUCTS */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .product-card {
+      position: relative;
+    }
+    .product-image {
+      height: 360px;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--cream);
+      margin-bottom: 18px;
+    }
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s;
+    }
+    .product-card:hover img {
+      transform: scale(1.04);
+    }
+    .product-info {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .product-name {
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+    .product-type {
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .price {
+      white-space: nowrap;
+    }
+    .add-cart {
+      margin-top: 14px;
+      width: 100%;
+      border: 1px solid var(--brown);
+      background: transparent;
+      padding: 10px;
+      border-radius: 25px;
+      transition: .2s;
+    }
+    .add-cart:hover {
+      background: var(--brown);
+      color: white;
+    }
+    /* SKIN TYPES */
+    .skin-section {
+      background: var(--sage);
+    }
+    .skin-types {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+    .skin-card {
+      background: rgba(255,255,255,.55);
+      padding: 35px 25px;
+      border-radius: 8px;
+      transition: .25s;
+    }
+    .skin-card:hover {
+      transform: translateY(-5px);
+      background: white;
+    }
+    .skin-card span {
+      font-size: 30px;
+      display: block;
+      margin-bottom: 20px;
+    }
+    .skin-card h3 {
+      font-size: 25px;
+      margin-bottom: 8px;
+    }
+    .skin-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    /* ROUTINE */
+    .routine {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .routine-image {
+      height: 550px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .routine-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .routine-content h2 {
+      font-size: 50px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .routine-content > p {
+      color: var(--muted);
+      margin-bottom: 30px;
+    }
+    .routine-step {
+      display: flex;
+      gap: 20px;
+      padding: 18px 0;
+      border-top: 1px solid var(--border);
+    }
+    .number {
+      width: 35px;
+      height: 35px;
+      border: 1px solid var(--brown);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      font-size: 13px;
+    }
+    .routine-step h3 {
+      font-size: 20px;
+    }
+    .routine-step p {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    /* INGREDIENTS */
+    .ingredients {
+      background: var(--cream);
+    }
+    .ingredient-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .ingredient {
+      padding: 40px;
+      background: white;
+      border-radius: 8px;
+    }
+    .ingredient h3 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    .ingredient p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    /* REVIEWS */
+    .reviews {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .review {
+      border: 1px solid var(--border);
+      padding: 30px;
+      border-radius: 8px;
+    }
+    .stars {
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+    }
+    .review p {
+      font-family: "Playfair Display", serif;
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+    .review small {
+      color: var(--muted);
+    }
+    /* NEWSLETTER */
+    .newsletter {
+      background: var(--pink);
+      text-align: center;
+    }
+    .newsletter h2 {
+      font-size: 50px;
+      margin-bottom: 15px;
+    }
+    .newsletter p {
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+    .newsletter-form {
+      max-width: 480px;
+      margin: auto;
+      display: flex;
+      gap: 8px;
+    }
+    .newsletter-form input {
+      flex: 1;
+      border: 1px solid var(--brown);
+      background: transparent;
+      padding: 14px 18px;
+      border-radius: 30px;
+      outline: none;
+    }
+    .newsletter-form button {
+      border: none;
+      background: var(--brown);
+      color: white;
+      padding: 14px 22px;
+      border-radius: 30px;
+    }
+    /* FOOTER */
+    footer {
+      background: var(--brown);
+      color: white;
+      padding: 70px 24px 30px;
+    }
+    .footer-grid {
+      max-width: 1150px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+    .footer-logo {
+      font-family: "Playfair Display", serif;
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+    footer p {
+      color: #d7ceca;
+      font-size: 14px;
+      max-width: 300px;
+    }
+    .footer-column h4 {
+      margin-bottom: 15px;
+    }
+    .footer-column a {
+      display: block;
+      color: #d7ceca;
+      font-size: 14px;
+      margin-bottom: 9px;
+    }
+    .footer-bottom {
+      max-width: 1150px;
+      margin: 60px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid #655953;
+      font-size: 12px;
+      color: #bdb2ad;
+    }
+    /* CART */
+    .cart-count {
+      display: inline-flex;
+      min-width: 20px;
+      height: 20px;
+      align-items: center;
+      justify-content: center;
+      background: var(--brown);
+      color: white;
+      border-radius: 50%;
+      font-size: 11px;
+      margin-left: 4px;
+    }
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+      .menu {
+        display: block;
+      }
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      .hero-content {
+        padding: 80px 25px;
+        margin: 0;
+      }
+      .hero-image {
+        min-height: 500px;
+      }
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .skin-types {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .routine {
+        grid-template-columns: 1fr;
+      }
+      .ingredient-grid,
+      .reviews {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 600px) {
+      nav {
+        height: 65px;
+      }
+      .logo {
+        font-size: 24px;
+      }
+      .hero h1 {
+        font-size: 50px;
+      }
+      .hero-image {
+        min-height: 400px;
+      }
+      .trust {
+        grid-template-columns: 1fr 1fr;
+      }
+      .trust-item:nth-child(2) {
+        border-right: none;
+      }
+      section {
+        padding: 70px 18px;
+      }
+      .section-heading {
+        display: block;
+      }
+      .section-heading h2 {
+        font-size: 38px;
+        margin-bottom: 15px;
+      }
+      .products {
+        grid-template-columns: 1fr;
+      }
+      .product-image {
+        height: 430px;
+      }
+      .skin-types {
+        grid-template-columns: 1fr;
+      }
+      .routine-content h2 {
+        font-size: 40px;
+      }
+      .newsletter h2 {
+        font-size: 40px;
+      }
+      .newsletter-form {
+        flex-direction: column;
+      }
+      .newsletter-form button {
+        width: 100%;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVIGATION -->
+  <header>
+    <nav>
+      <a href="#" class="logo">Elora Skin</a>
+      <ul class="nav-links">
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#skin">Skin Types</a></li>
+        <li><a href="#routine">Routine</a></li>
+        <li><a href="#ingredients">Ingredients</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+      <div>
+        <button class="cart" onclick="showCart()">
+          Bag <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="menu" onclick="toggleMenu()">☰</button>
+      </div>
+    </nav>
+  </header>
+  <!-- HERO -->
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <div class="eyebrow">
+          Thoughtful skincare
+        </div>
+        <h1>
+          Your skin,<br>
+          beautifully cared for.
+        </h1>
+        <p>
+          Simple, effective skincare made with thoughtfully selected
+          ingredients for healthy-looking, radiant skin.
+        </p>
+        <div class="buttons">
+          <a href="#shop" class="btn btn-primary">
+            Shop Collection
+          </a>
+          <a href="#skin" class="btn btn-secondary">
+            Find Your Routine
+          </a>
+        </div>
+      </div>
+      <div class="hero-image"></div>
+    </section>
+    <!-- TRUST -->
+    <div class="trust">
+      <div class="trust-item">
+        ✦ Thoughtfully formulated
+      </div>
+      <div class="trust-item">
+        ✦ Cruelty-free
+      </div>
+      <div class="trust-item">
+        ✦ Gentle formulas
+      </div>
+      <div class="trust-item">
+        ✦ Made for everyday rituals
+      </div>
+    </div>
+    <!-- PRODUCTS -->
+    <section id="shop">
+      <div class="section-inner">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">The essentials</div>
+            <h2>Meet your new<br>skin staples.</h2>
+          </div>
+          <p>
+            A small collection of everyday essentials designed
+            to cleanse, hydrate and protect.
+          </p>
+        </div>
+        <div class="products">
+          <article class="product-card">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&fit=crop&w=700&q=80"
+                alt="Gentle cleanser"
+              >
+            </div>
+            <div class="product-info">
+              <div>
+                <div class="product-name">Cloud Cleanser</div>
+                <div class="product-type">Gentle Face Cleanser</div>
+              </div>
+              <div class="price">₹699</div>
+            </div>
+            <button class="add-cart" onclick="addToCart('Cloud Cleanser')">
+              Add to bag
+            </button>
+          </article>
+          <article class="product-card">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1612817288484-6f916006741a?auto=format&fit=crop&w=700&q=80"
+                alt="Vitamin C serum"
+              >
+            </div>
+            <div class="product-info">
+              <div>
+                <div class="product-name">Glow Serum</div>
+                <div class="product-type">Vitamin C + Antioxidants</div>
+              </div>
+              <div class="price">₹899</div>
+            </div>
+            <button class="add-cart" onclick="addToCart('Glow Serum')">
+              Add to bag
+            </button>
+          </article>
+          <article class="product-card">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=700&q=80"
+                alt="Hydrating moisturizer"
+              >
+            </div>
+            <div class="product-info">
+              <div>
+                <div class="product-name">Dew Cream</div>
+                <div class="product-type">Daily Hydrating Moisturizer</div>
+              </div>
+              <div class="price">₹799</div>
+            </div>
+            <button class="add-cart" onclick="addToCart('Dew Cream')">
+              Add to bag
+            </button>
+          </article>
+          <article class="product-card">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1556228852-80e2c4d4e5b3?auto=format&fit=crop&w=700&q=80"
+                alt="Sunscreen"
+              >
+            </div>
+            <div class="product-info">
+              <div>
+                <div class="product-name">Daily Shield</div>
+                <div class="product-type">SPF 50+ Sunscreen</div>
+              </div>
+              <div class="price">₹849</div>
+            </div>
+            <button class="add-cart" onclick="addToCart('Daily Shield')">
+              Add to bag
+            </button>
+          </article>
+        </div>
+      </div>
+    </section>
+    <!-- SKIN TYPES -->
+    <section id="skin" class="skin-section">
+      <div class="section-inner">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">Know your skin</div>
+            <h2>Made for your<br>skin story.</h2>
+          </div>
+          <p>
+            Everyone's skin is different. Discover a routine
+            that works with what your skin needs.
+          </p>
+        </div>
+        <div class="skin-types">
+          <div class="skin-card">
+            <span>💧</span>
+            <h3>Dry</h3>
+            <p>
+              Focus on nourishing hydration and protecting
+              your skin barrier.
+            </p>
+          </div>
+          <div class="skin-card">
+            <span>🌿</span>
+            <h3>Oily</h3>
+            <p>
+              Lightweight hydration and balanced formulas
+              for comfortable skin.
+            </p>
+          </div>
+          <div class="skin-card">
+            <span>☁️</span>
+            <h3>Combination</h3>
+            <p>
+              A balanced routine designed for different
+              areas of your face.
+            </p>
+          </div>
+          <div class="skin-card">
+            <span>🌸</span>
+            <h3>Sensitive</h3>
+            <p>
+              Gentle, uncomplicated skincare for a
+              comfortable daily ritual.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ROUTINE -->
+    <section id="routine">
+      <div class="section-inner">
+        <div class="routine">
+          <div class="routine-image">
+            <img
+              src="https://images.unsplash.com/photo-1570194065650-d99fb4b38e26?auto=format&fit=crop&w=1000&q=85"
+              alt="Skincare routine"
+            >
+          </div>
+          <div class="routine-content">
+            <div class="eyebrow">Your daily ritual</div>
+            <h2>
+              Less complicated.<br>
+              More intentional.
+            </h2>
+            <p>
+              Great skincare doesn't need to be complicated.
+              Start with the essentials and build a ritual
+              you'll actually enjoy.
+            </p>
+            <div class="routine-step">
+              <div class="number">01</div>
+              <div>
+                <h3>Cleanse</h3>
+                <p>
+                  Start with a gentle cleanser to refresh
+                  your skin.
+                </p>
+              </div>
+            </div>
+            <div class="routine-step">
+              <div class="number">02</div>
+              <div>
+                <h3>Treat</h3>
+                <p>
+                  Add a targeted serum based on your skin needs.
+                </p>
+              </div>
+            </div>
+            <div class="routine-step">
+              <div class="number">03</div>
+              <div>
+                <h3>Hydrate</h3>
+                <p>
+                  Lock in moisture with a comfortable daily cream.
+                </p>
+              </div>
+            </div>
+            <div class="routine-step">
+              <div class="number">04</div>
+              <div>
+                <h3>Protect</h3>
+                <p>
+                  Finish your morning routine with SPF 50+.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- INGREDIENTS -->
+    <section id="ingredients" class="ingredients">
+      <div class="section-inner">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">What's inside</div>
+            <h2>Ingredients<br>with purpose.</h2>
+          </div>
+          <p>
+            We believe every ingredient should have a reason
+            to be in your routine.
+          </p>
+        </div>
+        <div class="ingredient-grid">
+          <div class="ingredient">
+            <h3>Niacinamide</h3>
+            <p>
+              A versatile skincare ingredient often used
+              to support an even-looking complexion and
+              healthy skin barrier.
+            </p>
+          </div>
+          <div class="ingredient">
+            <h3>Hyaluronic Acid</h3>
+            <p>
+              A hydration-loving ingredient that helps
+              skin feel soft, plump and comfortable.
+            </p>
+          </div>
+          <div class="ingredient">
+            <h3>Vitamin C</h3>
+            <p>
+              An antioxidant commonly used in skincare
+              to support brighter-looking skin.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- REVIEWS -->
+    <section>
+      <div class="section-inner">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">Kind words</div>
+            <h2>Loved by your<br>skin community.</h2>
+          </div>
+        </div>
+        <div class="reviews">
+          <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>
+              “My routine finally feels simple. My skin feels
+              so much more comfortable.”
+            </p>
+            <small>— Ananya</small>
+          </div>
+          <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>
+              “The Glow Serum has become my favorite part
+              of my morning routine.”
+            </p>
+            <small>— Riya</small>
+          </div>
+          <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>
+              “Beautiful products and a really lovely
+              skincare experience.”
+            </p>
+            <small>— Meera</small>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- NEWSLETTER -->
+    <section class="newsletter">
+      <div class="section-inner">
+        <div class="eyebrow">Stay in the glow</div>
+        <h2>Skincare, thoughtfully shared.</h2>
+        <p>
+          Join our community for skincare tips, new launches
+          and little moments of self-care.
+        </p>
+        <form class="newsletter-form" onsubmit="subscribe(event)">
+          <input
+            type="email"
+            placeholder="Your email address"
+            required
+          >
+          <button type="submit">
+            Subscribe
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <!-- FOOTER -->
+  <footer id="about">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Elora Skin</div>
+        <p>
+          Simple skincare for everyday rituals.
+          Thoughtfully created to help you care
+          for the skin you're in.
+        </p>
+      </div>
+      <div class="footer-column">
+        <h4>Shop</h4>
+        <a href="#shop">All Products</a>
+        <a href="#shop">Cleansers</a>
+        <a href="#shop">Serums</a>
+        <a href="#shop">Moisturizers</a>
+      </div>
+      <div class="footer-column">
+        <h4>Explore</h4>
+        <a href="#skin">Skin Types</a>
+        <a href="#routine">Routines</a>
+        <a href="#ingredients">Ingredients</a>
+        <a href="#">Journal</a>
+      </div>
+      <div class="footer-column">
+        <h4>Help</h4>
+        <a href="#">Contact</a>
+        <a href="#">Shipping</a>
+        <a href="#">Returns</a>
+        <a href="#">FAQ</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Elora Skin. All rights reserved.
+    </div>
+  </footer>
+  <!-- JAVASCRIPT -->
+  <script>
+    let cart = [];
+    function addToCart(product) {
+      cart.push(product);
+      document.getElementById("cartCount").textContent = cart.length;
+      alert(product + " added to your bag ✨");
+    }
+    function showCart() {
+      if (cart.length === 0) {
+        alert("Your bag is currently empty.");
+      } else {
+        alert(
+          "Your Elora Skin bag:\n\n" +
+          cart.map((item, index) =>
+            `${index + 1}. ${item}`
+          ).join("\n")
+        );
+      }
+    }
+    function subscribe(event) {
+      event.preventDefault();
+      const email = event.target.querySelector("input").value;
+      alert(
+        "Thank you for joining Elora Skin ✨\n\n" +
+        email + " has been added to our community."
+      );
+      event.target.reset();
+    }
+    function toggleMenu() {
+      const links = document.querySelector(".nav-links");
+      if (links.style.display === "flex") {
+        links.style.display = "none";
+      } else {
+        links.style.display = "flex";
+        links.style.position = "absolute";
+        links.style.top = "65px";
+        links.style.left = "0";
+        links.style.right = "0";
+        links.style.padding = "25px";
+        links.style.background = "#fffdf9";
+        links.style.flexDirection = "column";
+      }
+    }
+  </script>
+</body>
+</html>
